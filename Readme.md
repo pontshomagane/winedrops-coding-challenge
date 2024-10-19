@@ -1,60 +1,60 @@
-# Winedrops coding challenge
+# Winedrops Coding Challenge
+
+## Overview
+
+This project is a simple web application that displays the best-selling wines. It is designed to demonstrate full-stack engineering skills, covering frontend, backend, and database interactions.
 
 ## Goal
 
-Build a simple web app that displays the best selling wine.
+The goal of this project is to display a list of the best-selling wines, with the ability to highlight the top and bottom 10% of wines based on sales metrics. Users can also search for wines and filter the list based on their search criteria.
 
-We're looking for full stack engineers, so we've prepared you a task which touches frontend, backend, and the database. Only the infrastrure is missing... Well, if you can deploy it somewhere - then why not?
+## Features
 
-![mockup](./mockup.png)
+- Display a list of the best-selling wines.
+- Highlight the top 10% of wines in green and the bottom 10% in red.
+- Allow users to select the criteria for "best selling" (revenue, total number of bottles sold, or number of orders).
+- Search functionality that filters wines by name and vintage, case-insensitive.
+- Roll-up sales data for wines sold at different prices but considered the same wine.
 
-## Requirements
+## Technical Details
 
-- Display a list of the best selling wines
-- Show the best selling wine:
-  - No pagination needed
-  - Top 10% wines should be highlighted in green
-  - Bottom 10% wines should be highlighted in red
-  - Ability to select what the `best selling means` - either by `revenue` or by `total number of bottls sold` or `number of orders`
-- **Important note**:
-  - We often sell the same wine at at different price (more details on that in the [Database schema section](#database-schema))
-  - For example, `Château Montclair` is sold both at £40.26 and £40.76
-  - So in the list of the best selling wine `Château Montclair` should appear only once and its entry should include the roll up of all orders, even if they were bought at a different price
-  - **Vintage**, however, does mean that it is a different wine
-- Only do that for orders which have status of either `paid` or `dispatched`
-- Search
-  - You start typing in the search bar and we only show the wines that match it
-    - The search should be case insensitive
-    - The search should be done on the `name` and `vintage` fields
-    - For filtered out wines we should still see their position in the full list
-    - And if it's a top 10% or bottom 10% we should highlight it
+- The backend is built using Fastify and interacts with a pre-populated SQLite database.
+- The frontend is built using React.
+- The database schema includes tables for master wines, wine products, and customer orders.
 
-## Technical details
+## How to Run
 
-- We provide you with a `sqlite` database that it is already pre-populated with the data
-  -- It's in the `backend/db/winedrops.db` file
-- This repo also provides skaffolding for the frontend and backend
-- To run the backend just do `cd backend && yarn dev`
-  - The backend is using `fastify`
-- The frontend is React
-  - To run the frontend do `cd frontend && yarn dev`
+### Backend
 
-## How to build
+1. Navigate to the backend directory:
 
-- It's up to you :-)
-- You can use any 3rd party library you want
-- For interacting with the database you can use an ORM or not - it's up to you
-- For the API stick to using `fastify` but you can create any endpoints you want
+```sh
+  cd backend
+```
+
+2. Install the dependencies and run with yarn:
+
+```sh
+  yarn install
+  yarn dev
+```
+
+### Frontend
+
+1. Navigate to the backend directory:
+
+```sh
+  cd backend
+```
+
+2. Install the dependencies and run with yarn:
+
+```sh
+  yarn install
+  yarn dev
+```
 
 ## Database schema
-
-- A few important things about the data model
-- The same wine can be sold at different prices
-  - For example, `Château Montclair` is sold both at £40.26 and £40.76
-- That's why we have two separate tables `master_wine` and `wine_product`
-  - `master_wine` contains the basic information about the wine - its name and vintage
-  - and `wine_product` is `master_wine` plus a price we sell it at
-  - `wine_product` does have the `name` field, but its for our own convenince rather than for showing it to the user
 
 ```sql
 create table master_wine (
@@ -81,16 +81,6 @@ create table customer_order (
 );
 ```
 
-## Judgemenet criteria
+## Acknowledgements
 
-- Does your app do what it's specified in the [Requirements](#requirements) section?
-  - That section may not be the best written, but neither are our Trello tickets
-  - So we'll see how you've interepreted the requirements
-- How easy is it to understand your code?
-  - Your code may work, but can other people understand and extend it?
-
-## How to submit
-
-- Create a private repo on GitHub and push your code there
-- Invite `mikeborozdin` (`mike@winedrops.co.uk`) as a collaborator
-- Send us the link to the repo
+I would like to thank the team at Winedrops for giving me the opportunity to take part in this stage of the interview process. It has been a valuable experience, learning bout fastify  which I didn't know of and appreciate the chance to show case my skills.

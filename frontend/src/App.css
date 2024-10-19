@@ -1,0 +1,33 @@
+.app {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+    background-color: #dfddef; /* Wine color */
+
+}
+
+h1 {
+  color: #333;
+}
+
+.search-bar {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.metric-select {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.wine-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.wine-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
